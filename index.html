@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--PLOTLY-->
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+		
+		#myDiv{
+			height: 40%;
+			width: 60%;
+			position:relative;
+		}
+    </style>
+</head>
+<body class='with-3d-shadow with-transitions'>
+
+	<h2>JsonTest</h2>
+	<div id="myDiv"></div>
+	
+<script>
+	Plotly.d3.json('https://gist.githubusercontent.com/DevNicolasG/a1b942db8f0deb83d2992f2357b8c714/raw/9ce70ef59bcc03d1fb10731a5dd792b12c707b18/data2.json', function(error, figure) {
+		if(error) throw error;
+	   
+
+		var data = [{
+            x: figure.x_axis,
+            y: figure.y_axis }];
+        var layout = {font: {size: 18}};
+        var config = {responsive: true};
+        TESTER = document.getElementById('test');
+        Plotly.newPlot('myDiv', data, layout, config);
+		})
+
+</script>
+</body>
+</html>
